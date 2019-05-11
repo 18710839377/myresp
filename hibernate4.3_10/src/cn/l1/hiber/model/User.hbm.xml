@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 
+package：指定当前映射文件的实体类model所在的包
+ -->
+<hibernate-mapping package="cn.l1.hiber.model">
+	<!-- 
+		lazy:当前类是否使用延迟加载  默认是true  使用
+		 -->
+	<class name="User" table="t_user" lazy="true">
+		<id name="userId" column="user_id">
+		
+		
+			<generator class="native"></generator>
+		</id>
+		<property name="uname"></property>
+		<property name="gender"></property>
+		<property name="birthday"></property>
+		<property name="salary"></property>
+	</class>
+	<query name="queryAll">
+		<![CDATA[
+			from User u where u.salary > :salary
+		
+		]]>
+	</query>
+</hibernate-mapping>

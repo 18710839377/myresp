@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- 数据库连接设置 -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/hiber05</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        
+        <!-- 数据库连接最小连接数 -->
+		<property name="c3p0.min_size">10</property>
+		<!-- 数据库最大连接数 -->
+		<property name="c3p0.max_size">100</property>
+		<!-- 连接数据库超时时间 -->
+		<property name="c3p0.timeout">3000</property>
+		
+		<!-- <property name="hbm2ddl.auto">none</property> -->
+		
+        <!-- 设置数据库连接池的初始化连接数 -->
+        <!-- <property name="connection.pool_size">10</property> -->
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="show_sql">true</property>
+        <mapping resource="cn/l1/hiber/model/User.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
